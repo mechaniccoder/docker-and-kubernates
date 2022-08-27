@@ -11,5 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check docker
-        run: docker
+      - name: Build image
+        run: docker build -t seunghwan/web -f Dockerfile.dev .
+
+      - name: Run test
+        run: docker run seunghwan/web npm run test -- --coverage
