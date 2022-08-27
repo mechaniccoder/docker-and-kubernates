@@ -6,13 +6,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: nginx
-      ports:
-        - 80:80
+    container: docker
 
     steps:
       - uses: actions/checkout@v3
 
       - name: Check docker
-        run: /usr/bin/docker
+        run: docker
