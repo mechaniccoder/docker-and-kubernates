@@ -1,0 +1,19 @@
+name: Build and test application
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: nginx
+      ports:
+        - 80:80
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check docker
+        run: docker
