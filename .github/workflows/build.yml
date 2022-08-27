@@ -13,6 +13,7 @@ jobs:
 
       - name: Build image
         run: docker build -t seunghwan/web -f frontend/Dockerfile.dev .
+        working-directory: frontend
 
       - name: Run test
         run: docker run seunghwan/web npm run test -- --coverage
