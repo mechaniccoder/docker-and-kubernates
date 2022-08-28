@@ -6,14 +6,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: docker
     environment: dev
 
     steps:
-      - name: Install deps
-        run: |
-          apk add curl
-          apk add sudo
+      - name: Check docker compose
+        run: docker-compose
+
       - uses: actions/checkout@v3
 
       # - name: Build image
@@ -23,15 +21,15 @@ jobs:
       # - name: Run test
       #   run: docker run seunghwan/web npm run test -- --coverage
 
-      - name: Install AWS CLI
-        run: |
-          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-          unzip awscliv2.zip
-          sudo ./aws/install
-          aws --version
+      # - name: Install AWS CLI
+      #   run: |
+      #     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      #     unzip awscliv2.zip
+      #     sudo ./aws/install
+      #     aws --version
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          aws-region: ap-northeast-2
+      # - name: Configure AWS Credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      #     aws-region: ap-northeast-2
