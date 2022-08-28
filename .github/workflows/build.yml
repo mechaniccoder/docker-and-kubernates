@@ -6,10 +6,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: ubuntu
+    container: docker
     environment: dev
 
     steps:
+      - name: Install deps
+        run: |
+          apk install curl
+          apk install sudo
       - uses: actions/checkout@v3
 
       # - name: Build image
