@@ -8,26 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
 
-    services:
-      redis:
-        image: redis
-        ports:
-          - 6000:6000
     steps:
-      - name: Check docker
-        run: docker
-
-      - name: Check docker compose
-        run: docker-compose
-
       - uses: actions/checkout@v3
 
-      # - name: Build image
-      #   run: docker build -t seunghwan/web -f Dockerfile.dev .
-      #   working-directory: frontend
+      - name: Build image
+        run: docker build -t seunghwan/web -f Dockerfile.dev .
+        working-directory: frontend
 
-      # - name: Run test
-      #   run: docker run seunghwan/web npm run test -- --coverage
+      - name: Run test
+        run: docker run seunghwan/web npm run test -- --coverage
 
       # - name: Install AWS CLI
       #   run: |
