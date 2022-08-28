@@ -9,6 +9,9 @@ jobs:
     environment: dev
 
     steps:
+      - name: Check docker
+        run: docker
+
       - name: Check docker compose
         run: docker-compose
 
