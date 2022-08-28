@@ -33,5 +33,3 @@ jobs:
         with:
           role-to-assume: { { secrets.AWS_ROLE_TO_ASSUME } }
           aws-region: ap-northeast-2
-
-      - name: Deploy to AWS Elastic Beanstalk
