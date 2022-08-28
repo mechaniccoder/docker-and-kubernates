@@ -10,6 +10,10 @@ jobs:
     container: docker
 
     steps:
+      - name: Update apt & Install curl
+        run: |
+          sudo apt install curl -y
+
       - uses: actions/checkout@v3
 
       # - name: Build image
