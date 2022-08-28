@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: Update apt & Install curl
         run: |
-          sudo apt install curl -y
+          apt install curl -y
+          apt install sudo
 
       - uses: actions/checkout@v3
 
