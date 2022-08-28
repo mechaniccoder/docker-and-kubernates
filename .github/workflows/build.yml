@@ -7,14 +7,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: dev
-    container: docker
 
     steps:
-      - name: Update apt & Install curl
-        run: |
-          apt install curl -y
-          apt install sudo
-
       - uses: actions/checkout@v3
 
       # - name: Build image
